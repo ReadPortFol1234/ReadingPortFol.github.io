@@ -16,15 +16,8 @@ for (i = 0; i < document.getElementsByClassName("Content").length; i++){
 
 console.log("this variable", variable , "is a type of" , typeof variable, SelectButtons, typeof SelectButtons);
 console.log(Math.floor(Math.random() * (10 - 5 + 1)) + 5);
-
-
-if(true){console.log("a string".slice(2, -1))}
-for(let i = 1; i <= 10; i++){
-    console.log(i)
-};
-function amogus(one, two, ...n){
 console.log("amogus")
-}
+
 
 SelectButtons.forEach(function(button, index) {
     button.addEventListener("click", function(){
@@ -71,7 +64,7 @@ SubSelectButtons.forEach(function(button, index) {
 
     })
 })
-
-console.log(SubSelectButtons, SelectButtons, Content)
-
+const vid = document.getElementById("VidId");
+console.log(SubSelectButtons, SelectButtons, Content);
+vid.playbackRate = 0.55;
 

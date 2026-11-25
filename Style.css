@@ -13,7 +13,28 @@ body{
     background-color: rgb(197, 224, 248);
 
 }
+video{
+    z-index: -10;
+    width: 165%;
+    height: 155%;
+}
+#vidcontainer{
+    display: flex;
+    position: fixed;
+    z-index: -10;
+    height: 100vh;
+    width: 115vh;
+    align-items: right;
+    flex-direction: column;
 
+}
+video::-webkit-media-controls {
+  display: none !important;
+}
+:root{
+    --textcolor: rgb(242, 249, 255);
+    --divcolor: rgb(53, 53, 53);
+}
 
 .SideBlock{
   display: flex;
@@ -32,6 +53,17 @@ body{
     width: 80%;
     float: right;
 }
+.TitleMenu{
+    color: var(--textcolor);
+    position: fixed;
+    top: 15%;
+    left: 27.5%;
+    margin: auto auto;
+    height: 70%;
+    width: 65%;
+    text-align: center;
+    white-space: nowrap;
+}
 .Aligner{
     display: flex;
     /*background-color: blueviolet;*/
@@ -42,46 +74,66 @@ body{
 }
 .SelectorBlock{
     /*background-color: rgb(248, 248, 248);*/
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     width: 200px;
     height: 33.3333333%;
     border: none;   /*2px solid;*/
     border-color: black;
     padding-bottom: 7.5%;
-    
 }
 .SelectButton{
-    background-color: rgb(53, 53, 53);
+    overflow: hidden;
+    background-color: var(--divcolor);
     width: 100%;
     height: 20%;
     border-radius: 20px;
     cursor: pointer;
     transition: transform 0.4s ease-in-out, color 0.4s;
+    color: var(--textcolor)
 }
-.SelectButton + .SubHolder{
-    display: none;
-    transform: scale(1, 1);
+.SelectButton + .SubHolder :nth-child(1){
+    transition-delay: 0.1s;
+    transform: translateX(-200%);
+}
+.SelectButton + .SubHolder :nth-child(2){
+    transition-delay: 0.2s;
+    transform: translateX(-200%);
+}
+.SelectButton + .SubHolder :nth-child(3){
+    transition-delay: 0.3s;
+    transform: translateX(-200%);
 }
 .SelectButton.active{
     color: rgb(33, 231, 231);
     transform: scale(1.05, 1.05);
 }
-.SelectButton.active + .SubHolder{
-    display: block;
+.SelectButton.active + .SubHolder :nth-child(1){
+    transition-delay: 0.1s;
+    transform: translateX(0%);
+}
+.SelectButton.active + .SubHolder :nth-child(2){
+    transition-delay: 0.2s;
+    transform: translateX(0%);
+}
+.SelectButton.active + .SubHolder :nth-child(3){
+    transition-delay: 0.3s;
+    transform: translateX(0%);
 }
 .SubHolder{
     display: block;
     height: 80%;
+    transition: transform 0.4s;
 }
 .SubSelectButton{
-    background-color: rgb(53, 53, 53);
+    overflow: hidden;
+    background-color: var(--divcolor);
     width: 100%;
     height: 20%;
     border-radius: 20px;
     cursor: pointer;
     margin-top: 1.10em;
     transition: transform 0.4s ease-in-out, color 0.4s;
+    color: var(--textcolor);
 }
 .SubSelectButton.active{
     color: rgb(33, 231, 231);
@@ -92,7 +144,7 @@ body{
     position: fixed;
     top: 15%;
     left: 27.5%;
-    background-color: rgb(53, 53, 53);
+    background-color: var(--divcolor);
     align-self: center;
     height: 70%;
     width: 65%;
@@ -102,9 +154,9 @@ body{
     margin-left: auto;
     margin-right: auto;
     transform: scale(0,0);
-    animation-name: Content_PopUp;
-    animation-duration: 0.4s;
     transition: 0.4s;
+    color: var(--textcolor);
+    overflow: scroll;
 }
 .Content.show{
     transform: scale(1,1);
@@ -114,10 +166,39 @@ body{
 .Content.show p{
     display: inline;
 }
+.Content p{
+    display: inline;
+}
 .Content.show div{
     height: 40px;
 }
+.Content table {
+    background-color: var(--textcolor);
+    border-radius: 5px;
+    width: 100%;
+}
+.Content table tr{
+    width: 100%;
+}
+.Content table tr th{
+    border-radius: 5px;
+    background-color: var(--divcolor);
+    width: 12.5%;
+    text-align: center;
+}
+.TextContent{
+    text-align: left !important;
+    font-size: 0.8em !important; 
+}
 
-@keyframes Content_PopUp {
-    from{transform: scale(0,0);}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background: var(--textcolor);
+    border-radius: 5px;
+}
+::-webkit-scrollbar-corner{
+    width: 0px;
 }
