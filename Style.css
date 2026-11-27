@@ -1,7 +1,12 @@
- @import url('https://fonts.googleapis.com/css2?family=Redaction+70:ital,wght@0,400;0,700;1,400&display=swap');
-*{
+@font-face {
+    font-family: "CsBrianRegular";
+    src: url(CsBrianDemoRegular-BLjgn.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+ *{
     box-sizing: border-box;
-    font-family: "Redaction 70", sans-serif;
+    font-family: 'CsBrianRegular', sans-serif;
 }
 body{
     margin: 0px;
@@ -11,6 +16,10 @@ body{
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+}
+hr{
+    border-top: 4px dotted var(--textcolor); 
+    border-bottom: 0;
 }
 video{
     z-index: -10;
