@@ -1,17 +1,16 @@
  @import url('https://fonts.googleapis.com/css2?family=Redaction+70:ital,wght@0,400;0,700;1,400&display=swap');
 *{
     box-sizing: border-box;
-}
-.Pixelate{
-
-    Color: rgb(20, 235, 38);
     font-family: "Redaction 70", sans-serif;
-
 }
 body{
     margin: 0px;
     background-color: rgb(197, 224, 248);
-
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 video{
     z-index: -10;
@@ -63,6 +62,12 @@ video::-webkit-media-controls {
     width: 65%;
     text-align: center;
     white-space: nowrap;
+    transition-delay: 0.1s;
+    transition: 1.5s;
+}
+.TitleMenu.hide{
+    opacity: 0;
+    transform: translateY(10%);
 }
 .Aligner{
     display: flex;
@@ -154,7 +159,7 @@ video::-webkit-media-controls {
     margin-left: auto;
     margin-right: auto;
     transform: scale(0,0);
-    transition: 0.4s;
+    transition: 0.8s;
     color: var(--textcolor);
     overflow: scroll;
 }

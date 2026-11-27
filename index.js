@@ -2,6 +2,8 @@ let variable = 100 >= 120 ? "greater than" : "lesser than"
 const SelectButtons  = []
 const SubSelectButtons = []
 const Content = []
+const TitleMenu = document.getElementsByClassName(`TitleMenu`)[0]
+
 for (i = 0; i < document.getElementsByClassName("SelectButton").length; i++){
     SelectButtons[i] = document.getElementsByClassName(`SelectButton`)[i]
 } 
@@ -23,9 +25,11 @@ SelectButtons.forEach(function(button, index) {
     button.addEventListener("click", function(){
     
         SelectButtons.forEach(function(self){
-             if(button.className === "SelectButton active"){
-            return
+            if(button.className === "SelectButton active"){
+                TitleMenu.classList.remove(`hide`)
+                return
             }
+            TitleMenu.classList.remove(`hide`)
             self.classList.remove(`active`)
         })
         
@@ -36,8 +40,15 @@ SelectButtons.forEach(function(button, index) {
         SubSelectButtons.forEach(function(self){
             self.classList.remove(`active`)
         })
-    
+
         this.classList.toggle(`active`)})
+})
+
+SelectButtons[2].addEventListener("click", function(){
+    if(SelectButtons[2].className === `SelectButton active`){
+        Content[6].classList.toggle(`show`)
+        TitleMenu.classList.toggle(`hide`)
+    }
 })
 
 SubSelectButtons.forEach(function(button, index) {
@@ -52,12 +63,13 @@ SubSelectButtons.forEach(function(button, index) {
         })
 
         SubSelectButtons.forEach(function(self){
-             if(button.className === "SubSelectButton active"){
+            if(button.className === "SubSelectButton active"){
+            TitleMenu.classList.remove(`hide`)
             return
             }
+            TitleMenu.classList.add(`hide`)
             self.classList.remove(`active`)
         })
-
         Content[index].classList.toggle(`show`)
         button.classList.toggle(`active`)
         
